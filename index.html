@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Country Capital Display</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+           background-color: #7FC7D9;
+            
+            text-align: center;
+            margin: 78px;
+        }
+
+        label {
+            font-size: 18px;
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        select {
+            font-size: 24px;
+            padding: 16px;
+        }
+
+        #capitalDisplay {
+            font-size: 20px;
+            font-weight: bold;
+            color: #202123;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <label for="countrySelect">Select a Country:</label>
+    <select id="countrySelect" onchange="displayCapital()">
+        <option value="default">Select a Country</option>
+        <option value="usa">United States</option>
+        <option value="uk">United Kingdom</option>
+        <option value="france">France</option>
+        <option value="india">India</option>
+        <option value="japan">Japan</option>
+    </select>
+
+    <div id="capitalDisplay"></div>
+
+    <script>
+        function displayCapital() {
+            var countrySelect = document.getElementById("countrySelect");
+            var capitalDisplay = document.getElementById("capitalDisplay");
+            
+            var selectedCountry = countrySelect.value;
+            var capital;
+
+            switch (selectedCountry) {
+                case "usa":
+                    capital = "Washington, D.C.";
+                    break;
+                case "uk":
+                    capital = "London";
+                    break;
+                case "france":
+                    capital = "Paris";
+                    break;
+                case "india":
+                    capital = " New Delhi";
+                    break;
+                case "japan":
+                    capital = "Tokyo";
+                    break;
+                default:
+                    capital = "";
+                    break;
+            }
+
+            capitalDisplay.textContent = capital;
+        }
+    </script>
+</body>
+</html>
